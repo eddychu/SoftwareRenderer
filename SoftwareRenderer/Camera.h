@@ -21,11 +21,12 @@ struct Camera {
 	}
 
 	void OnMouseMove(int x, int y) {
-		auto rotationMatrix = glm::rotate(glm::mat4(1.0), glm::radians(x * 0.1f), up);
-		position = vec3(rotationMatrix * (vec4(position - target, 1.0)));
+		auto rotationMatrix = glm::rotate(glm::mat4(1.0), glm::radians(-x * 0.1f), up);
+		position = vec3(rotationMatrix * vec4(position, 1.0));
 		
-		rotationMatrix = glm::rotate(glm::mat4(1.0), glm::radians(y * 0.1f), GetRightVector());
-		position = vec3(rotationMatrix * (vec4(position - target, 1.0)));
+	
+		rotationMatrix = glm::rotate(glm::mat4(1.0), glm::radians(-y * 0.1f), GetRightVector());
+		position = vec3(rotationMatrix * vec4(position, 1.0));
 	}
 
 	mat4 GetViewMatrix() {

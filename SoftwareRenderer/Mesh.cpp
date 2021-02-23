@@ -69,7 +69,7 @@ Mesh::Mesh(const char* filepath, const char* name)
 	std::string diffusefile = std::string(filepath) + "/" + std::string(name) + "_diffuse.tga";
 	diffuseTexture.Load(diffusefile.c_str());
 
-	std::string specularfile = std::string(filepath) + "/" + std::string(name) + "_spec.tga";
+	std::string specularfile = std::string(filepath) + "/" + std::string(name) + "_glow.tga";
 	specularTexture.Load(specularfile.c_str());
 
 	std::string normtfile = std::string(filepath) + "/" + std::string(name) + "_nm_tangent.tga";

@@ -16,7 +16,7 @@ public:
 	void Init();
 	void Draw();
 	void ShutDown();
-	void Update();
+	void Update(float delta);
 	float GetDelta();
 	void ProcessInput();
 	void Display();

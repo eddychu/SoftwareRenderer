@@ -47,7 +47,7 @@ void Renderer::Run()
 	while (mIsRunning) {
 		ProcessInput();
 		auto delta = GetDelta();
-		Update();
+		Update(delta);
 		Clear();
 		Draw();
 		Display();
@@ -64,14 +64,8 @@ void Renderer::Display() {
 
 void Renderer::Init()
 {
-	auto head = new Mesh("Assets/african_head", "african_head");
+	auto head = new Mesh("Assets/diablo3_pose", "diablo3_pose");
 	meshes.push_back(head);
-
-	auto eyeInner = new Mesh("Assets/african_head", "african_head_eye_inner");
-	meshes.push_back(eyeInner);
-
-	/*auto eyeOuter = new Mesh("Assets/african_head", "african_head_eye_outer");
-	meshes.push_back(eyeOuter);*/
 
 }
 
@@ -82,7 +76,7 @@ void Renderer::ShutDown()
 	SDL_Quit();
 }
 
-void Renderer::Update()
+void Renderer::Update(float delta)
 {
 	glm::mat4 model = glm::mat4(1.0f);
 	glm::mat4 view = camera.GetViewMatrix();
